@@ -11,7 +11,7 @@ const services = [
     id: 1,
     icon: Globe,
     title: "Premium Web Development",
-    price: "$270",
+    price: "$490",
     priceType: "One-Time Payment",
     description:
       "Custom high-converting designs built for performance and results.",
