@@ -213,7 +213,7 @@ export default function MeetUsPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto"
+            className="max-w-5xl mx-auto"
           >
             <div className="text-center mb-10">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
@@ -224,7 +224,7 @@ export default function MeetUsPage() {
                 joining soon.
               </p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
               {team.map((member, index) => (
                 <motion.div
                   key={index}
@@ -232,20 +232,20 @@ export default function MeetUsPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.5 }}
-                  className="glass rounded-2xl p-6 flex flex-col items-center text-center"
+                  className="glass rounded-3xl p-8 md:p-10 flex flex-col items-center text-center"
                 >
-                  <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 border border-border">
-                    <span className="text-2xl font-bold text-muted-foreground">
+                  <div className="flex h-28 w-28 md:h-32 md:w-32 items-center justify-center rounded-3xl bg-gradient-to-br from-primary/20 to-accent/20 border border-border">
+                    <span className="text-4xl md:text-5xl font-bold text-muted-foreground">
                       {member.initials}
                     </span>
                   </div>
-                  <span className="mt-4 inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                  <span className="mt-6 inline-flex items-center rounded-full bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary">
                     {member.abbr}
                   </span>
-                  <h3 className="mt-3 text-base font-semibold text-foreground">
+                  <h3 className="mt-4 text-lg md:text-xl font-semibold text-foreground">
                     {member.name}
                   </h3>
-                  <p className="mt-1 text-sm text-muted-foreground">
+                  <p className="mt-1 text-sm md:text-base text-muted-foreground">
                     {member.role}
                   </p>
                 </motion.div>
