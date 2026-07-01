@@ -20,10 +20,8 @@ export default function SMMFormPage() {
     const form = e.currentTarget
     const formData = new FormData(form)
     
-    // TODO: Replace with your Formspree endpoint
-    // Example: https://formspree.io/f/your-form-id
     try {
-      const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+      const response = await fetch("https://formspree.io/f/mreovwpp", {
         method: "POST",
         body: formData,
         headers: {
