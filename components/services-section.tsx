@@ -30,7 +30,7 @@ const services = [
     id: 2,
     icon: TrendingUp,
     title: "Social Growth & SMM",
-    price: "$70",
+    price: "190",
     priceType: "/Month",
     description:
       "Strategic social media management to grow your brand organically.",
