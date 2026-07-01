@@ -196,10 +196,10 @@ export default function MeetUsPage() {
                   <span className="mt-6 inline-flex items-center rounded-full bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary">
                     {member.abbr}
                   </span>
-                  <h3 className="mt-4 text-lg md:text-xl font-semibold text-foreground">
+                  <h3 className="mt-4 text-xl md:text-2xl font-bold text-foreground">
                     {member.name}
                   </h3>
-                  <p className="mt-1 text-sm md:text-base text-muted-foreground">
+                  <p className="mt-1.5 text-base md:text-lg text-primary font-medium">
                     {member.role}
                   </p>
                 </motion.div>
