@@ -37,6 +37,27 @@ const highlights = [
   },
 ]
 
+const team = [
+  {
+    initials: "?",
+    name: "To Be Announced",
+    role: "Chief Technology Officer",
+    abbr: "CTO",
+  },
+  {
+    initials: "?",
+    name: "To Be Announced",
+    role: "Chief Strategy Officer",
+    abbr: "CSO",
+  },
+  {
+    initials: "?",
+    name: "To Be Announced",
+    role: "Chief Marketing Officer",
+    abbr: "CMO",
+  },
+]
+
 export default function MeetUsPage() {
   return (
     <>
@@ -91,6 +112,28 @@ export default function MeetUsPage() {
                   <div className="mt-6 flex items-center gap-2 text-muted-foreground">
                     <MapPin className="h-4 w-4 text-primary" />
                     <span className="text-sm">Washington, USA</span>
+                  </div>
+
+                  {/* Highlights */}
+                  <div className="mt-8 w-full max-w-xs space-y-4">
+                    {highlights.map((item, index) => {
+                      const Icon = item.icon
+                      return (
+                        <div key={index} className="flex gap-3">
+                          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                            <Icon className="h-4 w-4 text-primary" />
+                          </div>
+                          <div>
+                            <h3 className="text-sm font-semibold text-foreground">
+                              {item.title}
+                            </h3>
+                            <p className="mt-0.5 text-xs text-muted-foreground leading-relaxed">
+                              {item.description}
+                            </p>
+                          </div>
+                        </div>
+                      )
+                    })}
                   </div>
                 </div>
 
@@ -163,39 +206,50 @@ export default function MeetUsPage() {
           </motion.div>
         </section>
 
-        {/* Highlights */}
+        {/* Leadership Team */}
         <section className="container mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="max-w-5xl mx-auto"
+            className="max-w-4xl mx-auto"
           >
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-              {highlights.map((item, index) => {
-                const Icon = item.icon
-                return (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1, duration: 0.5 }}
-                    className="glass rounded-2xl p-6"
-                  >
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 mb-4">
-                      <Icon className="h-6 w-6 text-primary" />
-                    </div>
-                    <h3 className="text-lg font-semibold text-foreground mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {item.description}
-                    </p>
-                  </motion.div>
-                )
-              })}
+            <div className="text-center mb-10">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+                Leadership Team
+              </h2>
+              <p className="text-sm md:text-base text-muted-foreground max-w-xl mx-auto">
+                The core team steering Luxa OS forward. More talented leaders
+                joining soon.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              {team.map((member, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  className="glass rounded-2xl p-6 flex flex-col items-center text-center"
+                >
+                  <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 border border-border">
+                    <span className="text-2xl font-bold text-muted-foreground">
+                      {member.initials}
+                    </span>
+                  </div>
+                  <span className="mt-4 inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                    {member.abbr}
+                  </span>
+                  <h3 className="mt-3 text-base font-semibold text-foreground">
+                    {member.name}
+                  </h3>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    {member.role}
+                  </p>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         </section>
