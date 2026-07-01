@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Check, Globe, TrendingUp, GraduationCap, Sparkles, Percent, Heart } from "lucide-react"
+import { Check, Globe, TrendingUp, GraduationCap, Palette, Sparkles, Percent, Heart } from "lucide-react"
 
 const services = [
   {
@@ -21,6 +21,8 @@ const services = [
       "Full SEO setup included",
       "Mobile-first responsive",
       "Analytics integration",
+      "Logo & brand design included",
+      "Booking form sent to your email",
     ],
     featured: true,
     available: true,
@@ -30,7 +32,7 @@ const services = [
     id: 2,
     icon: TrendingUp,
     title: "Social Growth & SMM",
-    price: "190",
+    price: "$190",
     priceType: "/Month",
     description:
       "Strategic social media management to grow your brand organically.",
@@ -39,7 +41,8 @@ const services = [
       "Organic growth strategies",
       "Custom graphic design",
       "Engagement optimization",
-      "Monthly analytics reports",
+      "Monthly analytics report",
+      "Logo & brand design included",
     ],
     featured: false,
     available: true,
@@ -47,6 +50,25 @@ const services = [
   },
   {
     id: 3,
+    icon: Palette,
+    title: "Brand & Logo Design",
+    price: "$75",
+    priceType: "One-Time Payment",
+    description:
+      "2-3 unique logo concepts with one cohesive branded feel and color palette.",
+    features: [
+      "2-3 custom logo concepts",
+      "One cohesive branded feel",
+      "Custom color combination",
+      "Free with Web Development ($490)",
+      "Free with Social Growth ($190/mo)",
+    ],
+    featured: false,
+    available: false,
+    formUrl: "#",
+  },
+  {
+    id: 4,
     icon: GraduationCap,
     title: "Student Enrichment Program",
     price: "TBA",
@@ -90,7 +112,7 @@ const cardVariants = {
 
 export function ServicesSection() {
   return (
-    <section className="relative py-24 md:py-32">
+    <section id="services" className="relative scroll-mt-24 py-24 md:py-32">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <motion.div
@@ -135,9 +157,9 @@ export function ServicesSection() {
           </div>
         </motion.div>
 
-        {/* Bento Grid - Single column on mobile, 2 cols on tablet, 3 on desktop */}
+        {/* Bento Grid - Single column on mobile, 2 cols on tablet, 4 on desktop */}
         <motion.div
-          className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
+          className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

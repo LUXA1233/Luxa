@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Sparkles } from "lucide-react"
 
@@ -69,18 +70,22 @@ export function HeroSection() {
             transition={{ delay: 0.5, duration: 0.6 }}
           >
             <Button
+              asChild
               size="lg"
               className="group bg-primary text-primary-foreground hover:bg-primary/90"
             >
-              View Our Services
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <a href="#services">
+                View Our Services
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </a>
             </Button>
             <Button
+              asChild
               size="lg"
               variant="outline"
               className="border-border hover:bg-secondary"
             >
-              See Our Work
+              <Link href="/proofs-roots">See Our Work</Link>
             </Button>
           </motion.div>
 
