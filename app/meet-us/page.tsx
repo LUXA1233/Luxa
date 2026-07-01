@@ -7,35 +7,11 @@ import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import {
   MapPin,
-  Code2,
-  Palette,
-  Heart,
   ArrowRight,
   ExternalLink,
   Sparkles,
   Rocket,
 } from "lucide-react"
-
-const highlights = [
-  {
-    icon: Code2,
-    title: "Technical Builder",
-    description:
-      "Years of hands-on programming experience turning complex ideas into fast, reliable products.",
-  },
-  {
-    icon: Palette,
-    title: "Design-Minded",
-    description:
-      "A sharp eye for modern, clean design that balances aesthetics with real usability.",
-  },
-  {
-    icon: Heart,
-    title: "Community Impact",
-    description:
-      "Co-founder of HopeBridge, a nonprofit dedicated to supporting teen mental health.",
-  },
-]
 
 const team = [
   {
@@ -98,42 +74,20 @@ export default function MeetUsPage() {
             <div className="glass rounded-3xl p-6 md:p-10 lg:p-12">
               <div className="grid gap-8 md:gap-12 md:grid-cols-[auto_1fr] items-start">
                 {/* Monogram Avatar */}
-                <div className="flex flex-col items-center md:items-start">
-                  <div className="relative">
-                    <div className="flex h-32 w-32 md:h-40 md:w-40 items-center justify-center rounded-3xl bg-gradient-to-br from-primary to-accent text-primary-foreground shadow-lg shadow-primary/20">
-                      <span className="text-4xl md:text-5xl font-bold tracking-tight">
+                <div className="flex flex-col items-center md:items-stretch">
+                  <div className="relative w-full md:w-64">
+                    <div className="flex h-80 md:h-full min-h-[22rem] w-full items-center justify-center rounded-3xl bg-gradient-to-br from-primary to-accent text-primary-foreground shadow-lg shadow-primary/20">
+                      <span className="text-6xl md:text-7xl font-bold tracking-tight">
                         SP
                       </span>
                     </div>
-                    <div className="absolute -bottom-3 -right-3 flex h-11 w-11 items-center justify-center rounded-2xl bg-card border border-border shadow-md">
+                    <div className="absolute -bottom-3 -right-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-card border border-border shadow-md">
                       <Rocket className="h-5 w-5 text-primary" />
                     </div>
                   </div>
-                  <div className="mt-6 flex items-center gap-2 text-muted-foreground">
+                  <div className="mt-6 flex items-center justify-center md:justify-start gap-2 text-muted-foreground">
                     <MapPin className="h-4 w-4 text-primary" />
                     <span className="text-sm">Washington, USA</span>
-                  </div>
-
-                  {/* Highlights */}
-                  <div className="mt-8 w-full max-w-xs space-y-4">
-                    {highlights.map((item, index) => {
-                      const Icon = item.icon
-                      return (
-                        <div key={index} className="flex gap-3">
-                          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                            <Icon className="h-4 w-4 text-primary" />
-                          </div>
-                          <div>
-                            <h3 className="text-sm font-semibold text-foreground">
-                              {item.title}
-                            </h3>
-                            <p className="mt-0.5 text-xs text-muted-foreground leading-relaxed">
-                              {item.description}
-                            </p>
-                          </div>
-                        </div>
-                      )
-                    })}
                   </div>
                 </div>
 
