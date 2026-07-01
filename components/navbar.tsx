@@ -78,6 +78,16 @@ export function Navbar() {
             >
               Proofs & Roots
             </Link>
+            <Link
+              href="/meet-us"
+              className={`text-base font-medium transition-colors ${
+                pathname === "/meet-us"
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              Meet Us
+            </Link>
             <Button
               size="sm"
               className="bg-primary text-primary-foreground hover:bg-primary/90"
@@ -131,6 +141,17 @@ export function Navbar() {
                   }`}
                 >
                   Proofs & Roots
+                </Link>
+                <Link
+                  href="/meet-us"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`text-lg font-medium transition-colors ${
+                    pathname === "/meet-us"
+                      ? "text-primary"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  Meet Us
                 </Link>
                 <div className="pt-2 border-t border-border/50">
                   <Button
