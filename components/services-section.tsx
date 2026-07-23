@@ -162,25 +162,8 @@ export function ServicesSection() {
             const Icon = service.icon
             const cardInner = (
               <>
-                {/* Badge Row */}
-                {(service.popular || !service.available) && (
-                  <div className="mb-4 flex">
-                    {service.popular && (
-                      <span className="inline-flex items-center gap-1 rounded-full bg-primary px-2.5 py-1 text-[11px] font-semibold text-primary-foreground">
-                        <Star className="h-3 w-3 fill-current" />
-                        Most Popular
-                      </span>
-                    )}
-                    {!service.available && (
-                      <span className="inline-flex items-center gap-1 rounded-full bg-secondary px-2.5 py-1 text-[11px] font-semibold text-primary shadow-[0_0_12px_rgba(139,92,246,0.5)] ring-1 ring-primary/40">
-                        <Sparkles className="h-3 w-3" />
-                        Coming Soon
-                      </span>
-                    )}
-                  </div>
-                )}
-
-                <div className="flex items-start gap-4">
+                {/* Icon + Badge Row */}
+                <div className="mb-4 flex items-center gap-3">
                   <div
                     className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${
                       service.available ? "bg-primary/10" : "bg-secondary"
@@ -194,6 +177,21 @@ export function ServicesSection() {
                       }`}
                     />
                   </div>
+                  {service.popular && (
+                    <span className="inline-flex items-center gap-1 rounded-full bg-primary px-2.5 py-1 text-[11px] font-semibold text-primary-foreground">
+                      <Star className="h-3 w-3 fill-current" />
+                      Most Popular
+                    </span>
+                  )}
+                  {!service.available && (
+                    <span className="inline-flex items-center gap-1 rounded-full bg-secondary px-2.5 py-1 text-[11px] font-semibold text-primary shadow-[0_0_12px_rgba(139,92,246,0.5)] ring-1 ring-primary/40">
+                      <Sparkles className="h-3 w-3" />
+                      Coming Soon
+                    </span>
+                  )}
+                </div>
+
+                <div>
                   <div className="min-w-0 flex-1">
                     <h3 className="flex items-center gap-2 text-lg font-bold text-card-foreground">
                       {service.title}
