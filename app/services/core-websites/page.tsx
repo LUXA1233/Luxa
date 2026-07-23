@@ -19,6 +19,7 @@ export default function CoreWebsitesPage() {
           image: "/portfolio/nextnotes-preview.png",
           title: "NextNotes — Music Lessons",
           tag: "Education",
+          href: "https://v0-next-notes.vercel.app/",
         },
         {
           image: "/examples/website-dental.png",
