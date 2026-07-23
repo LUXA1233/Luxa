@@ -2,89 +2,81 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Check, Globe, TrendingUp, GraduationCap, Palette, Sparkles, Percent, Heart } from "lucide-react"
+import {
+  Globe,
+  Box,
+  Palette,
+  Megaphone,
+  Target,
+  Bot,
+  ArrowRight,
+  Sparkles,
+  Percent,
+  Heart,
+  Star,
+} from "lucide-react"
 
 const services = [
   {
     id: 1,
     icon: Globe,
-    title: "Premium Web Development",
-    price: "$490",
-    priceType: "One-Time Payment",
+    title: "Core Websites",
     description:
-      "Custom high-converting designs built for performance and results.",
-    features: [
-      "Custom high-converting designs",
-      "Lightning-fast performance",
-      "Full SEO setup included",
-      "Mobile-first responsive",
-      "Analytics integration",
-      "Logo & brand design included",
-      "Booking form sent to your email",
-    ],
-    featured: true,
+      "Fast, modern multiple-page websites built to showcase your services and capture client bookings.",
+    href: "/services/core-websites",
     available: true,
-    formUrl: "/get-started/web",
+    popular: true,
   },
   {
     id: 2,
-    icon: TrendingUp,
-    title: "Social Growth & SMM",
-    price: "$190",
-    priceType: "/Month",
+    icon: Box,
+    title: "3D Websites",
     description:
-      "Strategic social media management to grow your brand organically.",
-    features: [
-      "3-4 hyper-targeted posts/week",
-      "Organic growth strategies",
-      "Custom graphic design",
-      "Engagement optimization",
-      "Monthly analytics report",
-      "Logo & brand design included",
-    ],
-    featured: false,
+      "High-end, interactive websites that use cinematic 3D effects to make products or houses look amazing.",
+    href: "/services/3d-websites",
     available: true,
-    formUrl: "/get-started/smm",
+    popular: false,
   },
   {
     id: 3,
     icon: Palette,
-    title: "Brand & Logo Design",
-    price: "$75",
-    priceType: "One-Time Payment",
+    title: "Logos & Branding",
     description:
-      "2-3 unique logo concepts with one cohesive branded feel and color palette.",
-    features: [
-      "2-3 custom logo concepts",
-      "One cohesive branded feel",
-      "Custom color combination",
-      "Free with Web Development ($490)",
-      "Free with Social Growth ($190/mo)",
-    ],
-    featured: false,
-    available: false,
-    formUrl: "#",
+      "Clean, professional logo bundles including a main symbol, text layout, and app icon for your business.",
+    href: "/services/logos-branding",
+    available: true,
+    popular: false,
   },
   {
     id: 4,
-    icon: GraduationCap,
-    title: "Student Enrichment Program",
-    price: "TBA",
-    priceType: "",
+    icon: Megaphone,
+    title: "Social Media & Ads",
     description:
-      "Business, marketing, and modern coding workshops for youth.",
-    features: [
-      "Business fundamentals",
-      "Digital marketing basics",
-      "Modern coding workshops",
-      "Hands-on projects",
-      "Mentorship included",
-    ],
-    featured: false,
+      "Strategic content and paid campaigns to grow your brand and reach the right audience.",
+    href: "#",
     available: false,
-    formUrl: "#",
+    popular: false,
+  },
+  {
+    id: 5,
+    icon: Target,
+    title: "Lead Generation",
+    description:
+      "Systems that consistently attract and convert qualified leads for your business.",
+    href: "#",
+    available: false,
+    popular: false,
+  },
+  {
+    id: 6,
+    icon: Bot,
+    title: "AI Automation",
+    description:
+      "Smart automations that handle repetitive tasks so you can focus on growth.",
+    href: "#",
+    available: false,
+    popular: false,
   },
 ]
 
@@ -93,18 +85,18 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
+      staggerChildren: 0.1,
     },
   },
 }
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.6,
+      duration: 0.5,
       ease: "easeOut",
     },
   },
@@ -116,7 +108,7 @@ export function ServicesSection() {
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <motion.div
-          className="mb-16 text-center"
+          className="mb-12 text-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -130,8 +122,8 @@ export function ServicesSection() {
             <span className="text-primary">Modern Businesses</span>
           </h2>
           <p className="mx-auto max-w-2xl text-pretty text-muted-foreground">
-            Choose from our carefully crafted service packages designed to
-            elevate your digital presence and accelerate growth.
+            Explore what we build. Click any service to see real examples of our
+            work.
           </p>
         </motion.div>
 
@@ -146,7 +138,8 @@ export function ServicesSection() {
           <div className="glass flex items-center gap-3 rounded-full px-5 py-2.5 text-sm">
             <Percent className="h-4 w-4 text-primary" />
             <span className="text-foreground">
-              <strong className="text-primary">15% OFF</strong> when you bundle Web + SMM
+              <strong className="text-primary">15% OFF</strong> when you bundle
+              services
             </span>
           </div>
           <div className="glass flex items-center gap-3 rounded-full px-5 py-2.5 text-sm">
@@ -157,110 +150,97 @@ export function ServicesSection() {
           </div>
         </motion.div>
 
-        {/* Bento Grid - Single column on mobile, 2 cols on tablet, 4 on desktop */}
+        {/* Service Buttons */}
         <motion.div
-          className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4"
+          className="mx-auto grid max-w-5xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {services.map((service) => (
-            <motion.div
-              key={service.id}
-              variants={cardVariants}
-              whileHover={{ scale: service.available ? 1.02 : 1, y: service.available ? -5 : 0 }}
-              className={`relative overflow-hidden rounded-2xl border bg-card p-8 transition-all ${
-                service.featured
-                  ? "border-primary/50 shadow-lg shadow-primary/10"
-                  : "border-border"
-              } ${!service.available ? "overflow-hidden" : ""}`}
-            >
-              {/* Coming Soon Overlay */}
-              {!service.available && (
-                <div className="absolute inset-0 z-10 flex items-center justify-center bg-background/80 backdrop-blur-sm">
-                  <motion.div
-                    className="flex flex-col items-center"
-                    animate={{ scale: [1, 1.05, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    <div className="animate-glow rounded-full bg-primary px-6 py-3 text-lg font-bold text-primary-foreground">
-                      <Sparkles className="mr-2 inline h-5 w-5" />
+          {services.map((service) => {
+            const Icon = service.icon
+            const cardInner = (
+              <>
+                {/* Popular Badge */}
+                {service.popular && (
+                  <div className="absolute right-3 top-3">
+                    <span className="inline-flex items-center gap-1 rounded-full bg-primary px-2.5 py-1 text-[11px] font-semibold text-primary-foreground">
+                      <Star className="h-3 w-3 fill-current" />
+                      Most Popular
+                    </span>
+                  </div>
+                )}
+
+                {/* Coming Soon Badge */}
+                {!service.available && (
+                  <div className="absolute right-3 top-3">
+                    <span className="inline-flex items-center gap-1 rounded-full bg-secondary px-2.5 py-1 text-[11px] font-semibold text-muted-foreground">
+                      <Sparkles className="h-3 w-3" />
                       Coming Soon
-                    </div>
-                    <p className="mt-3 text-sm text-muted-foreground">
-                      Stay tuned for updates
+                    </span>
+                  </div>
+                )}
+
+                <div className="flex items-start gap-4">
+                  <div
+                    className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${
+                      service.available ? "bg-primary/10" : "bg-secondary"
+                    }`}
+                  >
+                    <Icon
+                      className={`h-6 w-6 ${
+                        service.available
+                          ? "text-primary"
+                          : "text-muted-foreground"
+                      }`}
+                    />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <h3 className="flex items-center gap-2 text-lg font-bold text-card-foreground">
+                      {service.title}
+                    </h3>
+                    <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                      {service.description}
                     </p>
-                  </motion.div>
+                    {service.available && (
+                      <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-primary">
+                        View examples
+                        <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                      </span>
+                    )}
+                  </div>
                 </div>
-              )}
+              </>
+            )
 
-              {/* Featured Badge */}
-              {service.featured && (
-                <div className="absolute right-4 top-4">
-                  <Badge className="bg-primary text-primary-foreground">
-                    Most Popular
-                  </Badge>
-                </div>
-              )}
+            const baseClasses =
+              "group relative h-full rounded-2xl border bg-card p-6 text-left transition-all"
 
-              {/* Icon */}
-              <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10">
-                <service.icon className="h-7 w-7 text-primary" />
-              </div>
-
-              {/* Title */}
-              <h3 className="mb-2 text-xl font-bold text-card-foreground">
-                {service.title}
-              </h3>
-
-              {/* Price */}
-              <div className="mb-4">
-                <span className="text-3xl font-bold text-primary">
-                  {service.price}
-                </span>
-                <span className="text-muted-foreground">{service.priceType}</span>
-              </div>
-
-              {/* Description */}
-              <p className="mb-6 text-sm text-muted-foreground">
-                {service.description}
-              </p>
-
-              {/* Features */}
-              <ul className="mb-8 space-y-3">
-                {service.features.map((feature, index) => (
-                  <li key={index} className="flex items-center gap-3 text-sm">
-                    <div className="flex h-5 w-5 items-center justify-center rounded-full bg-primary/10">
-                      <Check className="h-3 w-3 text-primary" />
-                    </div>
-                    <span className="text-card-foreground">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              {/* CTA Button */}
-              {service.available ? (
-                <Button
-                  asChild
-                  className={`w-full ${
-                    service.featured
-                      ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                      : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-                  }`}
-                >
-                  <Link href={service.formUrl}>Get Started</Link>
-                </Button>
-              ) : (
-                <Button
-                  className="w-full bg-secondary text-secondary-foreground"
-                  disabled
-                >
-                  Coming Soon
-                </Button>
-              )}
-            </motion.div>
-          ))}
+            return (
+              <motion.div key={service.id} variants={cardVariants}>
+                {service.available ? (
+                  <Link
+                    href={service.href}
+                    className={`${baseClasses} block ${
+                      service.popular
+                        ? "border-primary/50 shadow-lg shadow-primary/10"
+                        : "border-border"
+                    } hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10`}
+                  >
+                    {cardInner}
+                  </Link>
+                ) : (
+                  <div
+                    className={`${baseClasses} cursor-not-allowed border-border opacity-70`}
+                    aria-disabled="true"
+                  >
+                    {cardInner}
+                  </div>
+                )}
+              </motion.div>
+            )
+          })}
         </motion.div>
       </div>
     </section>
