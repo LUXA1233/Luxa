@@ -162,23 +162,21 @@ export function ServicesSection() {
             const Icon = service.icon
             const cardInner = (
               <>
-                {/* Popular Badge */}
-                {service.popular && (
-                  <div className="absolute right-3 top-3">
-                    <span className="inline-flex items-center gap-1 rounded-full bg-primary px-2.5 py-1 text-[11px] font-semibold text-primary-foreground">
-                      <Star className="h-3 w-3 fill-current" />
-                      Most Popular
-                    </span>
-                  </div>
-                )}
-
-                {/* Coming Soon Badge */}
-                {!service.available && (
-                  <div className="absolute right-3 top-3">
-                    <span className="inline-flex items-center gap-1 rounded-full bg-secondary px-2.5 py-1 text-[11px] font-semibold text-muted-foreground">
-                      <Sparkles className="h-3 w-3" />
-                      Coming Soon
-                    </span>
+                {/* Badge Row */}
+                {(service.popular || !service.available) && (
+                  <div className="mb-4 flex">
+                    {service.popular && (
+                      <span className="inline-flex items-center gap-1 rounded-full bg-primary px-2.5 py-1 text-[11px] font-semibold text-primary-foreground">
+                        <Star className="h-3 w-3 fill-current" />
+                        Most Popular
+                      </span>
+                    )}
+                    {!service.available && (
+                      <span className="inline-flex items-center gap-1 rounded-full bg-secondary px-2.5 py-1 text-[11px] font-semibold text-primary shadow-[0_0_12px_rgba(139,92,246,0.5)] ring-1 ring-primary/40">
+                        <Sparkles className="h-3 w-3" />
+                        Coming Soon
+                      </span>
+                    )}
                   </div>
                 )}
 
